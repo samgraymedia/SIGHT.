@@ -10,10 +10,10 @@ import UIKit
 import AVKit
 import Vision
 import AVFoundation
-
+//timer
+var introTimer = Timer()
 class BlindViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
-    //timer
-    var introTimer = Timer()
+    
     //speaker
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
