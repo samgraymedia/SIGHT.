@@ -11,20 +11,25 @@ import AVKit
 import Vision
 import AVFoundation
 
-class BlindViewController: UIViewController {
+class BlindViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+    //timer
     var introTimer = Timer()
-    
+    //speaker
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: "")
     override func viewDidLoad() {
         super.viewDidLoad()
         //start timer
         introTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(runTimeCode), userInfo: nil, repeats: true)
-
+        
         
     }
     
     //timer funcation
     @objc func runTimeCode() {
-        print("hello")
+        myUtterance = AVSpeechUtterance(string: "Please swipe to the right to open the camera")
+        myUtterance.rate = 0.5
+        synth.speak(self.myUtterance)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
