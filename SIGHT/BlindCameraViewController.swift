@@ -13,6 +13,7 @@ class BlindCameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //stop intro timer.
         introTimer.invalidate()
     }
     
