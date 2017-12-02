@@ -101,6 +101,9 @@
                                 <items>
                                     <barButtonItem title="Camera" id="ThQ-Rp-pVK">
                                         <color key="tintColor" red="0.95686274510000002" green="0.50588235290000005" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="camera:" destination="b0L-kS-ezO" id="gZy-fc-NLj"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="w4G-Ya-Ja0"/>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="CdC-uw-bIS"/>

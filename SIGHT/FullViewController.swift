@@ -16,6 +16,20 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate 
         super.viewDidLoad()
         
     }
+    //open camera
+    @IBAction func camera(_ sender: Any) {
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            return
+        }
+        
+        let cameraPicker = UIImagePickerController()
+        cameraPicker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        cameraPicker.sourceType = .camera
+        cameraPicker.allowsEditing = false
+        
+        present(cameraPicker, animated: true)
+    }
+    //open photo library
     @IBAction func photoLibrary(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.allowsEditing = false
