@@ -18,12 +18,16 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate 
     }
     //open camera
     @IBAction func camera(_ sender: Any) {
+        
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let alert = UIAlertController(title: "Alert", message: "No camera detected on device", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
         let cameraPicker = UIImagePickerController()
-        cameraPicker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        cameraPicker.delegate = (self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate)
         cameraPicker.sourceType = .camera
         cameraPicker.allowsEditing = false
         
