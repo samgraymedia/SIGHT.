@@ -31,11 +31,6 @@ class BlindViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffe
         myUtterance.rate = 0.5
         synth.speak(self.myUtterance)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
 }
 
