@@ -35,7 +35,7 @@
                                 <rect key="frame" x="16" y="136" width="343" height="55"/>
                                 <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="oXi-Yf-eSw"/>
+                                    <constraint firstAttribute="height" constant="55" id="rb9-eX-J4y"/>
                                 </constraints>
                                 <state key="normal" title="Full Sight">
                                     <color key="titleColor" red="0.95686274510000002" green="0.50588235290000005" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,15 +58,16 @@
                         <color key="backgroundColor" red="0.95686274510000002" green="0.50588235290000005" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="aMu-rP-UDZ" firstAttribute="top" secondItem="0dI-dk-p9B" secondAttribute="bottom" constant="21" id="UHL-qh-w1y"/>
-                            <constraint firstItem="0dI-dk-p9B" firstAttribute="top" secondItem="blK-2d-lq8" secondAttribute="bottom" constant="44" id="VDk-9d-lXd"/>
-                            <constraint firstItem="blK-2d-lq8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="51" id="aq9-fe-4Zv"/>
-                            <constraint firstItem="0dI-dk-p9B" firstAttribute="trailing" secondItem="aMu-rP-UDZ" secondAttribute="trailing" id="her-0w-9SA"/>
-                            <constraint firstItem="0dI-dk-p9B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="igW-Ie-QsH"/>
-                            <constraint firstItem="blK-2d-lq8" firstAttribute="centerX" secondItem="0dI-dk-p9B" secondAttribute="centerX" id="jbN-1q-Y9Q"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aMu-rP-UDZ" secondAttribute="bottom" constant="400" id="l8Q-pa-cNE"/>
-                            <constraint firstItem="0dI-dk-p9B" firstAttribute="leading" secondItem="aMu-rP-UDZ" secondAttribute="leading" id="lgv-3u-kuc"/>
-                            <constraint firstItem="0dI-dk-p9B" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="nnh-cI-SKQ"/>
+                            <constraint firstItem="blK-2d-lq8" firstAttribute="centerX" secondItem="0dI-dk-p9B" secondAttribute="centerX" id="7OQ-J5-Eay"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aMu-rP-UDZ" secondAttribute="bottom" constant="400" id="DKe-hG-dC2"/>
+                            <constraint firstItem="0dI-dk-p9B" firstAttribute="leading" secondItem="aMu-rP-UDZ" secondAttribute="leading" id="HDV-AV-IR4"/>
+                            <constraint firstItem="0dI-dk-p9B" firstAttribute="top" secondItem="blK-2d-lq8" secondAttribute="bottom" constant="44" id="adt-Ao-mLV"/>
+                            <constraint firstItem="aMu-rP-UDZ" firstAttribute="top" secondItem="0dI-dk-p9B" secondAttribute="bottom" constant="21" id="cxu-pW-diW"/>
+                            <constraint firstItem="0dI-dk-p9B" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="doC-6K-nWt"/>
+                            <constraint firstItem="0dI-dk-p9B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="guG-3A-bvl"/>
+                            <constraint firstItem="aMu-rP-UDZ" firstAttribute="height" secondItem="0dI-dk-p9B" secondAttribute="height" id="of0-Qf-53X"/>
+                            <constraint firstItem="0dI-dk-p9B" firstAttribute="trailing" secondItem="aMu-rP-UDZ" secondAttribute="trailing" id="qUS-zf-i2j"/>
+                            <constraint firstItem="blK-2d-lq8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="51" id="tfn-1j-wj4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -85,7 +86,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-588" y="21"/>
+            <point key="canvasLocation" x="-588" y="20.239880059970016"/>
         </scene>
         <!--Full Sight View Controller-->
         <scene sceneID="mq8-BU-mpM">
