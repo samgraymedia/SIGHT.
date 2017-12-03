@@ -18,7 +18,7 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate 
     }
     //open camera
     @IBAction func camera(_ sender: Any) {
-        
+        //if the device has no camera
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             let alert = UIAlertController(title: "Alert", message: "No camera detected on device", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
