@@ -14,6 +14,7 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        optionsTimer.invalidate()
         
     }
     //open camera

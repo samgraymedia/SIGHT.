@@ -13,7 +13,7 @@ class ImpairedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        optionsTimer.invalidate()
     }
     
     override func didReceiveMemoryWarning() {
