@@ -13,6 +13,9 @@ import AVFoundation
 
 class BlindCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: "")
+    
     let identifierLabel: UITextView = {
         let label = UITextView()
         label.backgroundColor = .white
@@ -81,9 +84,9 @@ class BlindCameraViewController: UIViewController, AVCaptureVideoDataOutputSampl
             
             DispatchQueue.main.async {
                 self.identifierLabel.text = "\(firstObservation.identifier)"
-//                self.myUtterance = AVSpeechUtterance(string: self.identifierLabel.text!)
-//                self.myUtterance.rate = 0.5
-//                self.synth.speak(self.myUtterance)
+                self.myUtterance = AVSpeechUtterance(string: self.identifierLabel.text!)
+                self.myUtterance.rate = 0.5
+                self.synth.speak(self.myUtterance)
                 
             }
             
