@@ -17,6 +17,7 @@
 		7EB355A51FD1DB3B00089E13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EB355A31FD1DB3B00089E13 /* Main.storyboard */; };
 		7EB355A71FD1DB3B00089E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EB355A61FD1DB3B00089E13 /* Assets.xcassets */; };
 		7EB355AA1FD1DB3B00089E13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EB355A81FD1DB3B00089E13 /* LaunchScreen.storyboard */; };
+		7EE393E1202C715A00416A72 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7EE393E0202C715A00416A72 /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7EB355A61FD1DB3B00089E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EB355A91FD1DB3B00089E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7EB355AB1FD1DB3B00089E13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EE393E0202C715A00416A72 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		7EB3559E1FD1DB3B00089E13 /* SIGHT */ = {
 			isa = PBXGroup;
 			children = (
+				7EE393E0202C715A00416A72 /* Inceptionv3.mlmodel */,
 				7EB3559F1FD1DB3B00089E13 /* AppDelegate.swift */,
 				7EB355A11FD1DB3B00089E13 /* OptionsViewController.swift */,
 				7E11DE371FD1DFC2009CAF98 /* FullViewController.swift */,
@@ -158,6 +161,7 @@
 				7EB355A21FD1DB3B00089E13 /* OptionsViewController.swift in Sources */,
 				7EB355A01FD1DB3B00089E13 /* AppDelegate.swift in Sources */,
 				7E11DE3E1FD1E2FC009CAF98 /* BlindCameraViewController.swift in Sources */,
+				7EE393E1202C715A00416A72 /* Inceptionv3.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
