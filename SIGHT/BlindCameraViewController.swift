@@ -83,7 +83,13 @@ class BlindCameraViewController: UIViewController, AVCaptureVideoDataOutputSampl
             //  print(firstObservation.identifier, firstObservation.confidence)
             
             DispatchQueue.main.async {
-                self.identifierLabel.text = "\(firstObservation.identifier)"
+                var str = "\(firstObservation.identifier)"
+                
+                if let dotRange = str.range(of: ",") {
+                    str.removeSubrange(dotRange.lowerBound..<str.endIndex)
+                }
+                self.identifierLabel.text = str
+                
                 self.myUtterance = AVSpeechUtterance(string: self.identifierLabel.text!)
                 self.myUtterance.rate = 0.5
                 self.synth.speak(self.myUtterance)
