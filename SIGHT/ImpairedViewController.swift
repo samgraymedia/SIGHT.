@@ -1,36 +1,33 @@
 //
-//  ImpairedViewController.swift
+//  FullViewController.swift
 //  SIGHT
 //
 //  Created by Samuel Gray on 01/12/2017.
 //  Copyright © 2017 Samuel Gray. All rights reserved.
 //
+
+
 import UIKit
 import AVKit
 import Vision
 import AVFoundation
 
-class ImpairedViewController: UIViewController, UINavigationControllerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
+class ImpairedSightViewController: UIViewController, UINavigationControllerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
+    var speak = Timer()
+    @IBOutlet weak var indentifierLabel: UILabel!
     
-    let identifierLabel: UITextView = {
-        let label = UITextView()
-        label.backgroundColor = .white
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //stop intro timer.
         introTimer.invalidate()
+        //run the speak timer
+        self.speak = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(speakNow), userInfo: nil, repeats: true)
         
-        
-        
-        // here is where we start up the camera
-        // for more details visit: https://www.letsbuildthatapp.com/course_video?id=1252
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .photo
         
@@ -63,42 +60,50 @@ class ImpairedViewController: UIViewController, UINavigationControllerDelegate, 
     
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        //        print("Camera was able to capture a frame:", Date())
-        
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
         guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { return }
         let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
             
-            //perhaps check the err
-            
-            //            print(finishedReq.results)
             
             guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
-            print(results)
             guard let firstObservation = results.first else { return }
-            //   print(results.first)
-            //  print(firstObservation.identifier, firstObservation.confidence)
-            
             DispatchQueue.main.async {
                 var str = "\(firstObservation.identifier)"
                 
                 if let dotRange = str.range(of: ",") {
                     str.removeSubrange(dotRange.lowerBound..<str.endIndex)
                 }
-                self.identifierLabel.text = str
                 
-                self.myUtterance = AVSpeechUtterance(string: self.identifierLabel.text!)
+                self.identifierLabel.text = str
+                self.myUtterance = AVSpeechUtterance(string: str)
                 self.myUtterance.rate = 0.5
-                self.synth.speak(self.myUtterance)
                 
             }
+            
+            
+            
             
             
         }
         
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
+    
+    //the function that starts the speaking, called by the speak timer
+    @objc func speakNow(){
+        
+        self.synth.speak(self.myUtterance)
+    }
+    //open photo library
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

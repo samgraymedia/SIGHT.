@@ -29,7 +29,7 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate,
         //stop intro timer.
         introTimer.invalidate()
         //run the speak timer
-        self.speak = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(speakNow), userInfo: nil, repeats: true)
+        self.speak = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(speakNow), userInfo: nil, repeats: true)
         
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .photo
