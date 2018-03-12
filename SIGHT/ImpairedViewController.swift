@@ -18,8 +18,9 @@ class ImpairedSightViewController: UIViewController, UINavigationControllerDeleg
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     var speak = Timer()
-    @IBOutlet weak var indentifierLabel: UILabel!
     
+    
+    @IBOutlet weak var identifierLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class ImpairedSightViewController: UIViewController, UINavigationControllerDeleg
         
     }
     fileprivate func setupIdentifierConfidenceLabel() {
-        view.addSubview(identifierLabel)
+        view.addSubview((identifierLabel))
         identifierLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32).isActive = true
         identifierLabel.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         identifierLabel.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
