@@ -21,6 +21,7 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate,
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     var speak = Timer()
+    var str = ""
     @IBOutlet weak var identifierLabel: UILabel!
     
     
@@ -72,15 +73,11 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate,
             guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
             guard let firstObservation = results.first else { return }
             DispatchQueue.main.async {
-                var str = "\(firstObservation.identifier)"
+                self.str = "\(firstObservation.identifier)"
                 
-                if let dotRange = str.range(of: ",") {
-                    str.removeSubrange(dotRange.lowerBound..<str.endIndex)
+                if let dotRange = self.str.range(of: ",") {
+                    self.str.removeSubrange(dotRange.lowerBound..<self.str.endIndex)
                 }
-                
-                self.identifierLabel.text = str
-                self.myUtterance = AVSpeechUtterance(string: str)
-                self.myUtterance.rate = 0.5
                 
             }
             
@@ -95,7 +92,9 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate,
     
     //the function that starts the speaking, called by the speak timer
     @objc func speakNow(){
-        
+        self.identifierLabel.text = self.str
+        self.myUtterance = AVSpeechUtterance(string: self.str)
+        self.myUtterance.rate = 0.5
         self.synth.speak(self.myUtterance)
     }
     //open photo library

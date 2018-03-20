@@ -14,7 +14,7 @@ import AVFoundation
 
 class ImpairedSightViewController: UIViewController, UINavigationControllerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    
+  
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     var speak = Timer()
@@ -51,6 +51,8 @@ class ImpairedSightViewController: UIViewController, UINavigationControllerDeleg
         
         
     }
+
+    
     fileprivate func setupIdentifierConfidenceLabel() {
         view.addSubview((identifierLabel))
         identifierLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32).isActive = true

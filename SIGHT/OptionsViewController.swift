@@ -28,13 +28,18 @@ class OptionsViewController: UIViewController {
         //start timer
         introTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(runTimeCode), userInfo: nil, repeats: false)
     }
-    
+
     
     //timer funcation
     @objc func runTimeCode() {
         myUtterance = AVSpeechUtterance(string: "Hello, welcome to SIGHT, I'm your guide and I'll aid you through the use of the app. First you need to tell me what your impairment is. If you are able to see the options on the screen, pick one. If not using your finger or thumb, swipe in an upwards direction.")
         myUtterance.rate = 0.5
         synth.speak(self.myUtterance)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        synth.stopSpeaking(at: .word)
     }
 
 

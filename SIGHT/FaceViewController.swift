@@ -17,7 +17,7 @@ class FaceViewController: UIViewController {
         
         let scaleHeight = view.frame.width / image.size.width * image.size.height
         
-        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width ,height: scaleHeight)
+        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: scaleHeight)
         imageView.backgroundColor = .blue
         view.addSubview(imageView)
         

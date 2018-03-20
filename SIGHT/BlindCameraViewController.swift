@@ -25,8 +25,6 @@ class BlindCameraViewController: UIViewController, AVCaptureVideoDataOutputSampl
         introTimer.invalidate()
         //run the speak timer
         self.speak = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(speakNow), userInfo: nil, repeats: true)
-        // here is where we start up the camera
-        // for more details visit: https://www.letsbuildthatapp.com/course_video?id=1252
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .photo
         
@@ -67,8 +65,7 @@ class BlindCameraViewController: UIViewController, AVCaptureVideoDataOutputSampl
                         str.removeSubrange(dotRange.lowerBound..<str.endIndex)
                     }
                     
-                    self.myUtterance = AVSpeechUtterance(string: str)
-                    self.myUtterance.rate = 0.5
+                    
                     
                 }
 
@@ -83,8 +80,13 @@ class BlindCameraViewController: UIViewController, AVCaptureVideoDataOutputSampl
     
     //the function that starts the speaking, called by the speak timer
     @objc func speakNow(){
-    
+            self.myUtterance = AVSpeechUtterance(string: str)
+            self.myUtterance.rate = 0.5
             self.synth.speak(self.myUtterance)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        synth.stopSpeaking(at: .word)
     }
     
 }
