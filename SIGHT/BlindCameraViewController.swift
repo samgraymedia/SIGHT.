@@ -85,9 +85,6 @@ class BlindCameraViewController: UIViewController, AVCaptureVideoDataOutputSampl
             self.synth.speak(self.myUtterance)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        synth.stopSpeaking(at: .word)
-    }
     
 }
 

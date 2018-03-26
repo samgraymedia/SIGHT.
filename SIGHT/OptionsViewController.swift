@@ -36,6 +36,10 @@ class OptionsViewController: UIViewController {
         myUtterance.rate = 0.5
         synth.speak(self.myUtterance)
     }
+    //skip intro button
+    @IBAction func skipIntro(_ sender: Any) {
+        synth.stopSpeaking(at: .word)
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
