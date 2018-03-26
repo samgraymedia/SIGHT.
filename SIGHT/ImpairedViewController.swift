@@ -98,8 +98,7 @@ class ImpairedSightViewController: UIViewController, UINavigationControllerDeleg
         
         self.synth.speak(self.myUtterance)
     }
-    //open photo library
-    
+
     
     
     
