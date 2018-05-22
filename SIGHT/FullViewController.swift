@@ -13,9 +13,12 @@ import Vision
 import AVFoundation
 
 class FullSightViewController: UIViewController, UINavigationControllerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
+    var previewLayer: AVCaptureVideoPreviewLayer!
     @IBAction func backBtn(_ sender: Any) {
           dismiss(animated: true, completion: nil)
+            self.speak.invalidate()
     }
+    @IBOutlet weak var cameraView: UIView!
     
     
     let synth = AVSpeechSynthesizer()
@@ -41,9 +44,10 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate,
         
         captureSession.startRunning()
         
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        view.layer.addSublayer(previewLayer)
-        previewLayer.frame = view.frame
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = cameraView.bounds
+        previewLayer.videoGravity = .resizeAspectFill
+        cameraView.layer.addSublayer(previewLayer)
         
         let dataOutput = AVCaptureVideoDataOutput()
         dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
@@ -52,6 +56,10 @@ class FullSightViewController: UIViewController, UINavigationControllerDelegate,
 
         
         
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        previewLayer.frame = cameraView.bounds
     }
 
     

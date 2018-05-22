@@ -1,27 +1,25 @@
 //
-//  FullViewController.swift
+//  ImpairedViewController.swift
 //  SIGHT
 //
-//  Created by Samuel Gray on 01/12/2017.
-//  Copyright © 2017 Samuel Gray. All rights reserved.
+//  Created by Samuel Gray on 03/05/2018.
+//  Copyright © 2018 Samuel Gray. All rights reserved.
 //
-
 
 import UIKit
 import AVKit
 import Vision
 import AVFoundation
 
-class ImpairedSightViewController: UIViewController, UINavigationControllerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
-    
-  
+
+class ImapiredViewController: UIViewController, UINavigationControllerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
+    @IBOutlet weak var identifierLabel: UILabel!
+    @IBOutlet weak var cameraView: UIView!
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     var speak = Timer()
-    
-    
-    @IBOutlet weak var identifierLabel: UILabel!
-    
+    var str = ""
+    var previewLayer: AVCaptureVideoPreviewLayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         //stop intro timer.
@@ -38,30 +36,19 @@ class ImpairedSightViewController: UIViewController, UINavigationControllerDeleg
         
         captureSession.startRunning()
         
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        view.layer.addSublayer(previewLayer)
-        previewLayer.frame = view.frame
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = cameraView.bounds
+        previewLayer.videoGravity = .resizeAspectFill
+        cameraView.layer.addSublayer(previewLayer)
         
         let dataOutput = AVCaptureVideoDataOutput()
         dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
         captureSession.addOutput(dataOutput)
-        
-        
-        setupIdentifierConfidenceLabel()
-        
-        
     }
-
-    
-    fileprivate func setupIdentifierConfidenceLabel() {
-        view.addSubview((identifierLabel))
-        identifierLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32).isActive = true
-        identifierLabel.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        identifierLabel.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        identifierLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        previewLayer.frame = cameraView.bounds
     }
-    
-    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
@@ -72,42 +59,28 @@ class ImpairedSightViewController: UIViewController, UINavigationControllerDeleg
             guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
             guard let firstObservation = results.first else { return }
             DispatchQueue.main.async {
-                var str = "\(firstObservation.identifier)"
+                self.str = "\(firstObservation.identifier)"
                 
-                if let dotRange = str.range(of: ",") {
-                    str.removeSubrange(dotRange.lowerBound..<str.endIndex)
+                if let dotRange = self.str.range(of: ",") {
+                    self.str.removeSubrange(dotRange.lowerBound..<self.str.endIndex)
                 }
-                
-                self.identifierLabel.text = str
-                self.myUtterance = AVSpeechUtterance(string: str)
-                self.myUtterance.rate = 0.5
-                
             }
-            
-            
-            
-            
-            
         }
-        
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
-    
-    //the function that starts the speaking, called by the speak timer
     @objc func speakNow(){
-        
+        self.identifierLabel.text = self.str
+        self.myUtterance = AVSpeechUtterance(string: self.str)
+        self.myUtterance.rate = 0.5
         self.synth.speak(self.myUtterance)
     }
+    
+    @IBAction func home(_ sender: Any) {
+          dismiss(animated: true, completion: nil)
+            self.speak.invalidate()
+        
+    }
+    
 
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
-
-

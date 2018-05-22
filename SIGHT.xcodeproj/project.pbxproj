@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74EF8B59209BAC87002E121F /* ImpairedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EF8B58209BAC87002E121F /* ImpairedViewController.swift */; };
 		7E11DE361FD1DC0D009CAF98 /* SixCaps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E11DE351FD1DC0D009CAF98 /* SixCaps.ttf */; };
 		7E11DE381FD1DFC2009CAF98 /* FullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11DE371FD1DFC2009CAF98 /* FullViewController.swift */; };
-		7E11DE3A1FD1E254009CAF98 /* ImpairedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11DE391FD1E254009CAF98 /* ImpairedViewController.swift */; };
 		7E11DE3C1FD1E2E1009CAF98 /* BlindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11DE3B1FD1E2E1009CAF98 /* BlindViewController.swift */; };
 		7E11DE3E1FD1E2FC009CAF98 /* BlindCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11DE3D1FD1E2FC009CAF98 /* BlindCameraViewController.swift */; };
 		7EA2F9D62045E22000052DD8 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2F9D52045E22000052DD8 /* FaceViewController.swift */; };
@@ -22,9 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74EF8B58209BAC87002E121F /* ImpairedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpairedViewController.swift; sourceTree = "<group>"; };
 		7E11DE351FD1DC0D009CAF98 /* SixCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SixCaps.ttf; sourceTree = "<group>"; };
 		7E11DE371FD1DFC2009CAF98 /* FullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewController.swift; sourceTree = "<group>"; };
-		7E11DE391FD1E254009CAF98 /* ImpairedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpairedViewController.swift; sourceTree = "<group>"; };
 		7E11DE3B1FD1E2E1009CAF98 /* BlindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlindViewController.swift; sourceTree = "<group>"; };
 		7E11DE3D1FD1E2FC009CAF98 /* BlindCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlindCameraViewController.swift; sourceTree = "<group>"; };
 		7EA2F9D52045E22000052DD8 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
@@ -72,10 +72,10 @@
 				7EB3559F1FD1DB3B00089E13 /* AppDelegate.swift */,
 				7EB355A11FD1DB3B00089E13 /* OptionsViewController.swift */,
 				7E11DE371FD1DFC2009CAF98 /* FullViewController.swift */,
+				74EF8B58209BAC87002E121F /* ImpairedViewController.swift */,
 				7EB355A31FD1DB3B00089E13 /* Main.storyboard */,
 				7E11DE3D1FD1E2FC009CAF98 /* BlindCameraViewController.swift */,
 				7E11DE3B1FD1E2E1009CAF98 /* BlindViewController.swift */,
-				7E11DE391FD1E254009CAF98 /* ImpairedViewController.swift */,
 				7EB355A61FD1DB3B00089E13 /* Assets.xcassets */,
 				7EB355A81FD1DB3B00089E13 /* LaunchScreen.storyboard */,
 				7E11DE351FD1DC0D009CAF98 /* SixCaps.ttf */,
@@ -159,9 +159,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E11DE3C1FD1E2E1009CAF98 /* BlindViewController.swift in Sources */,
+				74EF8B59209BAC87002E121F /* ImpairedViewController.swift in Sources */,
 				7EA2F9D62045E22000052DD8 /* FaceViewController.swift in Sources */,
 				7E11DE381FD1DFC2009CAF98 /* FullViewController.swift in Sources */,
-				7E11DE3A1FD1E254009CAF98 /* ImpairedViewController.swift in Sources */,
 				7EB355A21FD1DB3B00089E13 /* OptionsViewController.swift in Sources */,
 				7EB355A01FD1DB3B00089E13 /* AppDelegate.swift in Sources */,
 				7E11DE3E1FD1E2FC009CAF98 /* BlindCameraViewController.swift in Sources */,
